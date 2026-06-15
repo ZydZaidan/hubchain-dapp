@@ -3,6 +3,11 @@ import React from "react";
 function App() {
   const [activeSlide, setActiveSlide] = React.useState(0);
 
+  {
+    /*overlay wallet connect*/
+  }
+  const [isWalletOpen, setIsWalletOpen] = React.useState(false);
+
   const carouselData = [
     {
       id: 0,
@@ -20,8 +25,8 @@ function App() {
       id: 1,
       platform: "Youtube",
       icon: (
-        <svg className="w-3 h-3 fill-current text-white" viewBox="0 0 24 24">
-          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+        <svg className="w-4 h-4 fill-current text-white" viewBox="0 0 24 24">
+          <path d="M21.582 6.186a2.665 2.665 0 0 0-1.876-1.888C18.047 3.846 12 3.846 12 3.846s-6.047 0-7.706.452a2.665 2.665 0 0 0-1.876 1.888C1.964 7.854 1.964 12 1.964 12s0 4.146.454 5.814a2.665 2.665 0 0 0 1.876 1.888C5.953 20.154 12 20.154 12 20.154s6.047 0 7.706-.452a2.665 2.665 0 0 0 1.876-1.888C22.036 16.146 22.036 12 22.036 12s0-4.146-.454-5.814zM9.982 15.481V8.519l6.58 3.481-6.58 3.481z" />
         </svg>
       ),
       image:
@@ -32,8 +37,15 @@ function App() {
       id: 2,
       platform: "Instagram",
       icon: (
-        <svg className="w-3 h-3 fill-current text-white" viewBox="0 0 24 24">
-          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+        <svg
+          className="w-4 h-4 fill-none stroke-current text-white stroke-2"
+          viewBox="0 0 24 24"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
         </svg>
       ),
       image:
@@ -49,7 +61,10 @@ function App() {
           <h1 className="font-space font-bold text-xl tracking-wide">
             HubChain
           </h1>
-          <button className="text-neoncyan text-xs font-semibold px-4 py-2 rounded-full border border-neoncyan/30 bg-neoncyan/10 hover:bg-neoncyan/20 transition-all">
+          <button
+            onClick={() => setIsWalletOpen(true)}
+            className="text-neoncyan text-xs font-semibold px-4 py-2 rounded-full border border-neoncyan/30 bg-neoncyan/10 hover:bg-neoncyan/20 transition-all"
+          >
             Connect Wallet
           </button>
         </header>
@@ -85,7 +100,11 @@ function App() {
         {/* sosmed icon */}
         <div className="flex justify-center gap-4 mt-8">
           {/* medsos1 */}
-          <a href="https://x.com/zydanx13" className="w-12 h-12 rounded-full bg-glass border border-white/10 flex items-center justify-center hover:bg-white/20 transition-all group cursor-pointer">
+          <a
+            href="https://x.com/zydanx13"
+            target="_blank"
+            className="w-12 h-12 rounded-full bg-glass border border-white/10 flex items-center justify-center hover:bg-white/20 transition-all group cursor-pointer"
+          >
             <svg
               className="w-4 h-4 fill-current text-gray-300 group-hover:text-white transition-colors"
               viewBox="0 0 24 24"
@@ -255,6 +274,7 @@ function App() {
           </a>
           <a
             href="https://www.linkedin.com/in/myazidz/"
+            target="_blank"
             className="flex items-center justify-between p-4 bg-glass border border-white/5 rounded-full  hover:bg-white/10 transition-all active:scale-95 group cursor-pointer "
           >
             <div>
@@ -291,6 +311,7 @@ function App() {
           </a>
           <a
             href="https://github.com/ZydZaidan"
+            target="_blank"
             className="flex items-center justify-between p-4 bg-glass border border-white/5 rounded-full  hover:bg-white/10 transition-all active:scale-95 group cursor-pointer "
           >
             <div>
@@ -327,9 +348,272 @@ function App() {
           </a>
         </div>
 
-        <a href="#" className="item-center justify-center flex mt-48 text-gray-500 hover:text-white transition-colors">
+        <a
+          href="#"
+          className="item-center justify-center flex mt-48 text-gray-500 hover:text-white transition-colors"
+        >
           <div className="font-space font-normal text-sm">Hubchain</div>
         </a>
+
+        {/* wallet connect overlay */}
+        {isWalletOpen && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4"
+            onClick={() => setIsWalletOpen(false)}
+          >
+            <div
+              className="bg-[#1c1c1e] w-full max-w-[420px] rounded-[24px] p-6 shadow-2xl border border-white/10"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <h2 className="font-space font-bold text-center text-lg mb-6">
+                Connect Your Wallet
+              </h2>
+              {/* wallet options */}
+              {/* installed wallet */}
+              <div className="mb-6">
+                <h3 className="text-gray-400 text-sm font-medium mb-3 ">
+                  Installed
+                </h3>
+                <div className="flex flex-col gap-1">
+                  {/* Metamask */}
+                  <button className="flex items-center gap-4 w-full border border-white/10 rounded-2xl p-2 hover:bg-white/5 transition-all group cursor-pointer">
+                    <div className="w-10 h-10 rounded-xl bg-white/5  flex items-center justify-center p-1.5">
+                      <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg"
+                        alt="Metamask"
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                    <div className="flex flex-col items-start">
+                      <span className="font-jakarta text-white font-semibold text-[15px]">
+                        Metamask
+                      </span>
+                      <span className="font-jakarta text-neoncyan text-[11px] font-medium">
+                        Recent
+                      </span>
+                    </div>
+                  </button>
+                  {/* CoinBase */}
+                  <button className="flex items-center gap-4 w-full border border-white/10 rounded-2xl p-2 hover:bg-white/5 transition-all group cursor-pointer">
+                    <div className="w-10 h-10 rounded-xl bg-[#0e5bff]  flex items-center justify-center p-1.5">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="64"
+                        height="64"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        class="web3icons"
+                      >
+                        <path
+                          fill="#0E5BFF"
+                          d="M3 12a9 9 0 1 1 18 0 9 9 0 0 1-18 0"
+                        />
+                        <path
+                          fill="#fff"
+                          fill-rule="evenodd"
+                          d="M12 18.375a6.375 6.375 0 1 0 0-12.75 6.375 6.375 0 0 0 0 12.75m-.75-8.25c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125h1.5c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                    <div className="flex flex-col items-start">
+                      <span className="font-jakarta text-white font-semibold text-[15px]">
+                        CoinBase
+                      </span>
+                    </div>
+                  </button>
+                </div>
+              </div>
+              {/* Popular */}
+              <div className="mb-6">
+                <h3 className="text-gray-400 text-sm font-medium mb-3 ">
+                  Popular
+                </h3>
+                <div className="flex flex-col gap-1">
+                  {/* connect */}
+                  <button className="flex items-center gap-4 w-full border border-white/10 rounded-2xl p-2 hover:bg-white/5 transition-all group cursor-pointer">
+                    <div className="w-10 h-10 rounded-xl bg-[#3b99fc]  flex items-center justify-center p-1.5">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="44"
+                        height="44"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        class="web3icons"
+                      >
+                        <path
+                          fill="#fff"
+                          d="M6.685 8.71c2.935-2.813 7.695-2.813 10.63 0l.353.339a.35.35 0 0 1 0 .51l-1.208 1.158a.194.194 0 0 1-.266 0l-.486-.466c-2.048-1.963-5.368-1.963-7.416 0l-.52.498a.194.194 0 0 1-.266 0L6.297 9.592a.35.35 0 0 1 0-.51zm13.13 2.396 1.075 1.03a.35.35 0 0 1 0 .51l-4.85 4.648a.39.39 0 0 1-.531 0l-3.443-3.299a.097.097 0 0 0-.132 0l-3.442 3.3a.39.39 0 0 1-.532 0l-4.85-4.65a.35.35 0 0 1 0-.508l1.076-1.031a.387.387 0 0 1 .531 0l3.442 3.299a.097.097 0 0 0 .133 0l3.442-3.3a.387.387 0 0 1 .532 0l3.442 3.3a.097.097 0 0 0 .133 0l3.442-3.3a.39.39 0 0 1 .531 0"
+                        />
+                      </svg>
+                    </div>
+                    <div className="flex flex-col items-start">
+                      <span className="font-jakarta text-white font-semibold text-[15px]">
+                        Connect Wallet
+                      </span>
+                    </div>
+                  </button>
+                  {/* Rainbow */}
+                  <button className="flex items-center gap-4 w-full border border-white/10 rounded-2xl p-2 hover:bg-white/5 transition-all group cursor-pointer">
+                    <div className="w-10 h-10 rounded-xl bg-[#133c8f] flex items-center justify-center p-1.5">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="44"
+                        height="44"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        class="web3icons"
+                      >
+                        <path
+                          fill="url(#rainbow__a)"
+                          d="M3 7.05h1.35c6.959 0 12.6 5.641 12.6 12.6V21h2.7A1.35 1.35 0 0 0 21 19.65C21 10.454 13.546 3 4.35 3A1.35 1.35 0 0 0 3 4.35z"
+                        />
+                        <path
+                          fill="url(#rainbow__b)"
+                          d="M17.4 19.65H21A1.35 1.35 0 0 1 19.65 21H17.4z"
+                        />
+                        <path
+                          fill="url(#rainbow__c)"
+                          d="M4.35 3v3.6H3V4.35C3 3.604 3.604 3 4.35 3"
+                        />
+                        <path
+                          fill="url(#rainbow__d)"
+                          d="M3 6.6h1.35c7.207 0 13.05 5.843 13.05 13.05V21h-4.05v-1.35a9 9 0 0 0-9-9H3z"
+                        />
+                        <path
+                          fill="url(#rainbow__e)"
+                          d="M13.8 19.65h3.6V21h-3.6z"
+                        />
+                        <path
+                          fill="url(#rainbow__f)"
+                          d="M3 10.2V6.6h1.35v3.6z"
+                        />
+                        <path
+                          fill="url(#rainbow__g)"
+                          d="M3 12.45c0 .745.604 1.35 1.35 1.35a5.85 5.85 0 0 1 5.85 5.85c0 .745.604 1.35 1.35 1.35h2.25v-1.35a9.45 9.45 0 0 0-9.45-9.45H3z"
+                        />
+                        <path
+                          fill="url(#rainbow__h)"
+                          d="M10.2 19.65h3.6V21h-2.25a1.35 1.35 0 0 1-1.35-1.35"
+                        />
+                        <path
+                          fill="url(#rainbow__i)"
+                          d="M4.35 13.8A1.35 1.35 0 0 1 3 12.45V10.2h1.35z"
+                        />
+                        <defs>
+                          <radialGradient
+                            id="rainbow__a"
+                            cx="0"
+                            cy="0"
+                            r="1"
+                            gradientTransform="rotate(-90 12 7.65)scale(16.6499)"
+                            gradientUnits="userSpaceOnUse"
+                          >
+                            <stop offset=".77" stop-color="#FF4000" />
+                            <stop offset="1" stop-color="#8754C9" />
+                          </radialGradient>
+                          <radialGradient
+                            id="rainbow__d"
+                            cx="0"
+                            cy="0"
+                            r="1"
+                            gradientTransform="rotate(-90 12 7.65)scale(13.05)"
+                            gradientUnits="userSpaceOnUse"
+                          >
+                            <stop offset=".724" stop-color="#FFF700" />
+                            <stop offset="1" stop-color="#FF9901" />
+                          </radialGradient>
+                          <radialGradient
+                            id="rainbow__g"
+                            cx="0"
+                            cy="0"
+                            r="1"
+                            gradientTransform="rotate(-90 12 7.65)scale(9.44997)"
+                            gradientUnits="userSpaceOnUse"
+                          >
+                            <stop offset=".595" stop-color="#0AF" />
+                            <stop offset="1" stop-color="#01DA40" />
+                          </radialGradient>
+                          <radialGradient
+                            id="rainbow__h"
+                            cx="0"
+                            cy="0"
+                            r="1"
+                            gradientTransform="matrix(3.82499 0 0 10.2 9.975 20.325)"
+                            gradientUnits="userSpaceOnUse"
+                          >
+                            <stop stop-color="#0AF" />
+                            <stop offset="1" stop-color="#01DA40" />
+                          </radialGradient>
+                          <radialGradient
+                            id="rainbow__i"
+                            cx="0"
+                            cy="0"
+                            r="1"
+                            gradientTransform="matrix(0 -3.82499 72.5331 0 3.675 14.025)"
+                            gradientUnits="userSpaceOnUse"
+                          >
+                            <stop stop-color="#0AF" />
+                            <stop offset="1" stop-color="#01DA40" />
+                          </radialGradient>
+                          <linearGradient
+                            id="rainbow__b"
+                            x1="17.175"
+                            x2="21"
+                            y1="20.325"
+                            y2="20.325"
+                            gradientUnits="userSpaceOnUse"
+                          >
+                            <stop stop-color="#FF4000" />
+                            <stop offset="1" stop-color="#8754C9" />
+                          </linearGradient>
+                          <linearGradient
+                            id="rainbow__c"
+                            x1="3.675"
+                            x2="3.675"
+                            y1="3"
+                            y2="6.825"
+                            gradientUnits="userSpaceOnUse"
+                          >
+                            <stop stop-color="#8754C9" />
+                            <stop offset="1" stop-color="#FF4000" />
+                          </linearGradient>
+                          <linearGradient
+                            id="rainbow__e"
+                            x1="13.8"
+                            x2="17.4"
+                            y1="20.325"
+                            y2="20.325"
+                            gradientUnits="userSpaceOnUse"
+                          >
+                            <stop stop-color="#FFF700" />
+                            <stop offset="1" stop-color="#FF9901" />
+                          </linearGradient>
+                          <linearGradient
+                            id="rainbow__f"
+                            x1="3.675"
+                            x2="3.675"
+                            y1="10.2"
+                            y2="6.6"
+                            gradientUnits="userSpaceOnUse"
+                          >
+                            <stop stop-color="#FFF700" />
+                            <stop offset="1" stop-color="#FF9901" />
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                    </div>
+                    <div className="flex flex-col items-start">
+                      <span className="font-jakarta text-white font-semibold text-[15px]">
+                        Rainbow
+                      </span>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );
