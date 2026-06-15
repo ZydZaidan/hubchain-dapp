@@ -1,16 +1,21 @@
-# React + Vite
+# 🚀 HubChain DApp (Practice Project)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> **Disclaimer:** This is a conceptual/practice project built for learning purposes and portfolio showcasing. It is not a live product or connected to any real blockchain network yet. 
 
-Currently, two official plugins are available:
+Welcome to **HubChain**! This is a front-end slicing practice for a conceptual Web3 ecosystem. Currently starting with a premium, mobile-first Decentralized Profile Card, with a vision to expand into a full-fledged Web3 interface.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🛠 Tech Stack
 
-## React Compiler
+- **Framework:** React + Vite
+- **Styling:** Tailwind CSS
+- **Fonts:** Space Grotesk & Plus Jakarta Sans
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Current Features (WIP)
 
-## Expanding the ESLint configuration
+- 📱 **Mobile-First Approach:** Optimized for mobile viewing with a responsive design.
+- 🌙 **Web3 Aesthetic:** Deep dark mode interface with Cyber Purple and Neon Cyan accents.
+- 🔗 **Interactive Components:** Bento-box style layout for profile details and links.
+- 🦊 **Wallet Integration Ready:** UI prepared for future Web3 wallet connections (Coming Soon).
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+*Designed & Developed by Zydstudio*
