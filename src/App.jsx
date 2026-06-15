@@ -7,6 +7,10 @@ function App() {
     /*overlay wallet connect*/
   }
   const [isWalletOpen, setIsWalletOpen] = React.useState(false);
+  const [touchStart, setTouchStart] = React.useState(null);
+  const [touchEnd, setTouchEnd] = React.useState(null);
+
+  const minSwipeDistance = 50;
 
   const carouselData = [
     {
@@ -53,6 +57,38 @@ function App() {
       desc: "Check out my latest design project on Instagram! #UIUX #Design",
     },
   ];
+  {
+    /* touch event for carousel */
+  }
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      setActiveSlide((prev) =>
+        prev === carouselData.length - 1 ? 0 : prev + 1,
+      );
+    }
+
+    if (isRightSwipe) {
+      setActiveSlide((prev) =>
+        prev === 0 ? carouselData.length - 1 : prev - 1,
+      );
+    }
+  };
+
   return (
     <>
       <div className="text-white bg-darkbg max-w-md mx-auto relative font-jakarta pb-20 min-h-screen">
@@ -185,7 +221,12 @@ function App() {
           </button>
         </div>
         {/* caraousel content */}
-        <div className="mt-4 bg-glass border border-white/5 rounded-3xl p-5 relative mx-6">
+        <div
+          className="mt-4 bg-glass border border-white/5 rounded-3xl p-5 relative mx-6"
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+        >
           <div className="flex justify-between items-center mb-4">
             <div className="w-4"></div>
             <h3 className="font-space font-bold text-[14px] tracking-wide">
