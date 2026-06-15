@@ -1,4 +1,46 @@
+import React from "react";
+
 function App() {
+  const [activeSlide, setActiveSlide] = React.useState(0);
+
+  const carouselData = [
+    {
+      id: 0,
+      platform: "Twitter",
+      icon: (
+        <svg className="w-3 h-3 fill-current text-white" viewBox="0 0 24 24">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+        </svg>
+      ),
+      image:
+        "https://images.unsplash.com/photo-1621416894569-0f39ed31d247?q=80&w=2000&auto=format&fit=crop",
+      desc: "Check out my latest design project on Twitter! #UIUX #Design",
+    },
+    {
+      id: 1,
+      platform: "Youtube",
+      icon: (
+        <svg className="w-3 h-3 fill-current text-white" viewBox="0 0 24 24">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+        </svg>
+      ),
+      image:
+        "https://images.unsplash.com/photo-1621416894569-0f39ed31d247?q=80&w=2000&auto=format&fit=crop",
+      desc: "Check out my latest design project on Youtube! #UIUX #Design",
+    },
+    {
+      id: 2,
+      platform: "Instagram",
+      icon: (
+        <svg className="w-3 h-3 fill-current text-white" viewBox="0 0 24 24">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+        </svg>
+      ),
+      image:
+        "https://images.unsplash.com/photo-1621416894569-0f39ed31d247?q=80&w=2000&auto=format&fit=crop",
+      desc: "Check out my latest design project on Instagram! #UIUX #Design",
+    }
+  ];
   return (
     <>
       <div className="text-white bg-darkbg max-w-md mx-auto relative font-jakarta pb-20 min-h-screen">
@@ -95,22 +137,80 @@ function App() {
           </button>
           {/* Qr Tip */}
           <button className="bg-neoncyan/5 py-6 px-4 border border-neoncyan/5 rounded-3xl flex flex-col items-center justify-center hover:bg-neoncyan/10 transition-all active:scale-95">
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-neoncyan mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <rect width="5" height="5" x="3" y="3" rx="1"></rect>
-                <rect width="5" height="5" x="16" y="3" rx="1"></rect>
-                <rect width="5" height="5" x="3" y="16" rx="1"></rect>
-                <path d="M21 16h-3a2 2 0 0 0-2 2v3"></path>
-                <path d="M21 21v.01"></path>
-                <path d="M12 7v3a2 2 0 0 1-2 2H7"></path>
-                <path d="M3 12h.01"></path>
-                <path d="M12 3h.01"></path>
-                <path d="M12 16v.01"></path>
-                <path d="M16 12h1"></path>
-                <path d="M21 12v.01"></path>
-                <path d="M12 21v-1"></path>
-              </svg>
-              <span className="text-neoncyan text-sm font-semibold">Scan to Tip</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-6 h-6 text-neoncyan mb-2"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <rect width="5" height="5" x="3" y="3" rx="1"></rect>
+              <rect width="5" height="5" x="16" y="3" rx="1"></rect>
+              <rect width="5" height="5" x="3" y="16" rx="1"></rect>
+              <path d="M21 16h-3a2 2 0 0 0-2 2v3"></path>
+              <path d="M21 21v.01"></path>
+              <path d="M12 7v3a2 2 0 0 1-2 2H7"></path>
+              <path d="M3 12h.01"></path>
+              <path d="M12 3h.01"></path>
+              <path d="M12 16v.01"></path>
+              <path d="M16 12h1"></path>
+              <path d="M21 12v.01"></path>
+              <path d="M12 21v-1"></path>
+            </svg>
+            <span className="text-neoncyan text-sm font-semibold">
+              Scan to Tip
+            </span>
           </button>
+        </div>
+        {/* caraousel content */}
+        <div className="mt-8 bg-glass border border-white/5 rounded-3xl p-5 relative">
+          <div className="flex justify-between items-center mb-4">
+            <div className="w-4"></div>
+            <h3 className="font-space font-bold text-[14px] tracking-wide">
+              Featured Content
+            </h3>
+            <svg
+              className="w-4 h-4 text-gray-400 hover:text-white transition-colors cursor-pointer"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+              />
+            </svg>
+          </div>
+
+          <div className="w-full h-40 rounded-2xl overflow-hidden mb-3">
+            <img
+              src={carouselData[activeSlide].image}
+              alt="Featured Content"
+              className="w-full h-full object-cover transition-opacity duration-500"
+            />
+          </div>
+
+          <div className="flex items-center gap-2 mb-2">
+            {carouselData[activeSlide].icon}
+            <span className="font-jakarta text-xs font-bold text-white">{carouselData[activeSlide].platform}</span>
+          </div>
+          <p className="text-[14px} text-gray-400 leading-relaxed min-h-[40px]">
+            {carouselData[activeSlide].desc}
+          </p>
+          <div className="flex justify-center gap-1.5 mt-5">
+            {carouselData.map((item, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveSlide(index)}
+                className={`h-1.5 rounded-full transition-all duration-300 ${activeSlide === index ? "w-4 bg-white" : "w-1.5 bg-gray-600 hover:bg-gray-400"}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </>
