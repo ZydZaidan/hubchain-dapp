@@ -25,7 +25,7 @@ function App() {
         </svg>
       ),
       image:
-        "https://images.unsplash.com/photo-1621416894569-0f39ed31d247?q=80&w=2000&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=2000&auto=format&fit=crop",
       desc: "Check out my latest design project on Youtube! #UIUX #Design",
     },
     {
@@ -37,9 +37,9 @@ function App() {
         </svg>
       ),
       image:
-        "https://images.unsplash.com/photo-1621416894569-0f39ed31d247?q=80&w=2000&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2000&auto=format&fit=crop",
       desc: "Check out my latest design project on Instagram! #UIUX #Design",
-    }
+    },
   ];
   return (
     <>
@@ -85,16 +85,16 @@ function App() {
         {/* sosmed icon */}
         <div className="flex justify-center gap-4 mt-8">
           {/* medsos1 */}
-          <div className="w-12 h-12 rounded-full bg-glass border border-white/10 flex items-center justify-center hover:bg-white/20 transition-all group">
+          <a href="https://x.com/zydanx13" className="w-12 h-12 rounded-full bg-glass border border-white/10 flex items-center justify-center hover:bg-white/20 transition-all group cursor-pointer">
             <svg
               className="w-4 h-4 fill-current text-gray-300 group-hover:text-white transition-colors"
               viewBox="0 0 24 24"
             >
               <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
             </svg>
-          </div>
+          </a>
           {/* medsos2 */}
-          <div className="w-12 h-12 rounded-full bg-glass border border-white/10 flex items-center justify-center hover:bg-white/20 transition-all group">
+          <div className="w-12 h-12 rounded-full bg-glass border border-white/10 flex items-center justify-center hover:bg-white/20 transition-all group cursor-pointer">
             <svg
               className="w-5 h-5 fill-current text-gray-300 group-hover:text-white transition-colors"
               viewBox="0 0 24 24"
@@ -103,7 +103,7 @@ function App() {
             </svg>
           </div>
           {/* medsos3 */}
-          <div className="w-12 h-12 rounded-full bg-glass border border-white/10 flex items-center justify-center hover:bg-white/20 transition-all group">
+          <div className="w-12 h-12 rounded-full bg-glass border border-white/10 flex items-center justify-center hover:bg-white/20 transition-all group cursor-pointer">
             <svg
               className="w-5 h-5 fill-none stroke-current text-gray-300 group-hover:text-white stroke-2 transition-colors"
               viewBox="0 0 24 24"
@@ -166,7 +166,7 @@ function App() {
           </button>
         </div>
         {/* caraousel content */}
-        <div className="mt-8 bg-glass border border-white/5 rounded-3xl p-5 relative">
+        <div className="mt-4 bg-glass border border-white/5 rounded-3xl p-5 relative mx-6">
           <div className="flex justify-between items-center mb-4">
             <div className="w-4"></div>
             <h3 className="font-space font-bold text-[14px] tracking-wide">
@@ -197,7 +197,9 @@ function App() {
 
           <div className="flex items-center gap-2 mb-2">
             {carouselData[activeSlide].icon}
-            <span className="font-jakarta text-xs font-bold text-white">{carouselData[activeSlide].platform}</span>
+            <span className="font-jakarta text-xs font-bold text-white">
+              {carouselData[activeSlide].platform}
+            </span>
           </div>
           <p className="text-[14px} text-gray-400 leading-relaxed min-h-[40px]">
             {carouselData[activeSlide].desc}
@@ -212,6 +214,122 @@ function App() {
             ))}
           </div>
         </div>
+
+        {/* EXTERNAL LINKS */}
+        <div className="flex flex-col gap-4 mt-4 px-6">
+          <a
+            href="#"
+            className="flex items-center justify-between p-4 bg-glass border border-white/5 rounded-full  hover:bg-white/10 transition-all active:scale-95 group cursor-pointer "
+          >
+            <div>
+              <svg
+                className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
+                />
+              </svg>
+            </div>
+            <span className="font-space font-semibold text-sm">Portfolio</span>
+            <div>
+              <svg
+                className="w-4 h-4 text-gray-400 group-hover:text-white transition-colors"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+            </div>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/myazidz/"
+            className="flex items-center justify-between p-4 bg-glass border border-white/5 rounded-full  hover:bg-white/10 transition-all active:scale-95 group cursor-pointer "
+          >
+            <div>
+              <svg
+                className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
+                />
+              </svg>
+            </div>
+            <span className="font-space font-semibold text-sm">LinkedIn</span>
+            <div>
+              <svg
+                className="w-4 h-4 text-gray-400 group-hover:text-white transition-colors"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+            </div>
+          </a>
+          <a
+            href="https://github.com/ZydZaidan"
+            className="flex items-center justify-between p-4 bg-glass border border-white/5 rounded-full  hover:bg-white/10 transition-all active:scale-95 group cursor-pointer "
+          >
+            <div>
+              <svg
+                className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
+                />
+              </svg>
+            </div>
+            <span className="font-space font-semibold text-sm">Github</span>
+            <div>
+              <svg
+                className="w-4 h-4 text-gray-400 group-hover:text-white transition-colors"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+            </div>
+          </a>
+        </div>
+
+        <a href="#" className="item-center justify-center flex mt-48 text-gray-500 hover:text-white transition-colors">
+          <div className="font-space font-normal text-sm">Hubchain</div>
+        </a>
       </div>
     </>
   );
