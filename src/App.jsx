@@ -10,6 +10,19 @@ function App() {
   const [touchStart, setTouchStart] = React.useState(null);
   const [touchEnd, setTouchEnd] = React.useState(null);
 
+  {
+    /* wallet */
+  }
+  const [isCopied, setIsCopied] = React.useState(false);
+  const dummyWallet = "0x1234...abcd";
+  const handleCopy = () => {
+    navigator.clipboard.writeText(dummyWallet);
+    setIsCopied(true);
+
+    setTimeout(() => {
+      setIsCopied(false);
+    }, 2000);
+  };
   const minSwipeDistance = 50;
 
   const carouselData = [
@@ -91,7 +104,12 @@ function App() {
 
   return (
     <>
-      <div className="text-white bg-darkbg max-w-md mx-auto relative font-jakarta pb-20 min-h-screen">
+      <div className="overflow-x-hidden text-white bg-darkbg max-w-md mx-auto relative font-jakarta pb-20 min-h-screen">
+        {/* AMBIENT GLOW EFFECTS */}
+        <div className="absolute top-20 -left-10 w-72 h-72 bg-cyberpurple/20 rounded-full mix-blend-screen filter blur-[80px] pointer-events-none z-0"></div>
+        <div className="absolute top-48 -right-10 w-72 h-72 bg-neoncyan/10 rounded-full mix-blend-screen filter blur-[90px] pointer-events-none z-0"></div>
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-full h-96 bg-gradient-to-t from-cyberpurple/20 via-neoncyan/5 to-transparent filter blur-[80px] pointer-events-none z-0"></div>
+
         {/* Header */}
         <header className="flex justify-between items-center px-6 py-5">
           <h1 className="font-space font-bold text-xl tracking-wide">
@@ -174,21 +192,43 @@ function App() {
         {/* bento button */}
         <div className="grid grid-cols-2 gap-2 mt-8 px-6">
           {/* copy wallet */}
-          <button className="bg-cyberpurple py-6 px-4 rounded-3xl flex flex-col items-center justify-center hover:bg-cyberpurple/80 transition-all active:scale-95">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-6 h-6 text-white mb-2"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
-              <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
-            </svg>
-            <span className="text-sm font-semibold">Wallet Address</span>
+          <button
+            onClick={handleCopy}
+            className="bg-cyberpurple py-6 px-4 rounded-3xl flex flex-col items-center justify-center hover:bg-cyberpurple/80 transition-all active:scale-95"
+          >
+            {isCopied ? (
+              <svg
+                className="w-6 h-6 text-white mb-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-6 h-6 text-white mb-2"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
+                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
+              </svg>
+            )}
+
+            <span className="text-sm font-semibold">
+              {isCopied ? "Copied!" : "Wallet Address"}{" "}
+            </span>
           </button>
           {/* Qr Tip */}
           <button className="bg-neoncyan/5 py-6 px-4 border border-neoncyan/5 rounded-3xl flex flex-col items-center justify-center hover:bg-neoncyan/10 transition-all active:scale-95">
