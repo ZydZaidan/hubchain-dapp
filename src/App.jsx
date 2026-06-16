@@ -11,6 +11,10 @@ function App() {
   const [touchEnd, setTouchEnd] = React.useState(null);
 
   {
+    /* Overlay QR */
+  }
+  const [isTipOpen, setIsTipOpen] = React.useState(false);
+  {
     /* wallet */
   }
   const [isCopied, setIsCopied] = React.useState(false);
@@ -231,7 +235,9 @@ function App() {
             </span>
           </button>
           {/* Qr Tip */}
-          <button className="bg-neoncyan/5 py-6 px-4 border border-neoncyan/5 rounded-3xl flex flex-col items-center justify-center hover:bg-neoncyan/10 transition-all active:scale-95">
+          <button 
+          onClick={() => setIsTipOpen(true)}
+          className="bg-neoncyan/5 py-6 px-4 border border-neoncyan/5 rounded-3xl flex flex-col items-center justify-center hover:bg-neoncyan/10 transition-all active:scale-95">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-6 h-6 text-neoncyan mb-2"
@@ -695,6 +701,54 @@ function App() {
             </div>
           </div>
         )}
+
+        {/* tip overlay */}
+        {/* --- MODAL OVERLAY SCAN TO TIP --- */}
+        {isTipOpen && (
+          <div 
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4"
+            onClick={() => setIsTipOpen(false)}
+          >
+            <div 
+              className="bg-[#1C1C1E] w-full max-w-[320px] rounded-[32px] p-8 shadow-2xl border border-white/5 flex flex-col items-center relative"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button 
+                onClick={() => setIsTipOpen(false)}
+                className="absolute top-5 right-5 text-gray-500 hover:text-white transition-colors"
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+
+              <h2 className="font-space text-white text-xl font-bold mb-2">Scan to Tip</h2>
+              <p className="font-jakarta text-gray-400 text-xs text-center mb-6 px-4">
+                Support the creator by sending ETH or any ERC-20 tokens to this address.
+              </p>
+
+              <div className="bg-white p-3 rounded-2xl mb-6">
+                <img 
+                  src={`https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExeWE0MGphNDkzazN3Nzd6c2NnYXEya2tpMTQxaTk4ZzF4dWdlYWl4eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/TKa7fQzChHylCQ89to/giphy.gif`} 
+                  alt="QR Code Tip" 
+                  className="w-40 h-40 rounded-xl"
+                />
+              </div>
+
+              {/* Info Wallet Address */}
+              <div className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 w-full flex items-center justify-between">
+                <span className="text-gray-300 font-mono text-xs truncate mr-3">{dummyWallet}</span>
+                <button 
+                  onClick={handleCopy}
+                  className="text-neoncyan text-xs font-semibold hover:text-white transition-colors whitespace-nowrap"
+                >
+                  {isCopied ? "Copied!" : "Copy"}
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
       </div>
     </>
   );
