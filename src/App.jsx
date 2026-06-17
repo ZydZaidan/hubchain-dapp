@@ -117,7 +117,7 @@ function App() {
         {/* Header */}
         <header className="flex justify-between items-center px-6 py-5">
           <div className="flex items-center gap-1">
-            <img src="/public/Logo.svg" alt="logo" className="" />
+            <img src="/Logo.svg" alt="logo" className="" />
             <h1 className="font-space font-bold text-xl tracking-tighter">
               HubChain.
             </h1>
