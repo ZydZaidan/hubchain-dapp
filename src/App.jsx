@@ -116,8 +116,8 @@ function App() {
 
         {/* Header */}
         <header className="flex justify-between items-center px-6 py-5">
-          <h1 className="font-space font-bold text-xl tracking-wide">
-            HubChain
+          <h1 className="font-space font-bold text-xl tracking-tighter">
+            HubChain.
           </h1>
           <button
             onClick={() => setIsWalletOpen(true)}

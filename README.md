@@ -1,5 +1,7 @@
 # 🚀 HubChain DApp (Practice Project)
 
+> **Live Demo:** [hubchain.vercel.app](https://LINK-VERCEL-LO.vercel.app)
+
 > **Disclaimer:** This is a conceptual/practice project built for learning purposes and portfolio showcasing. It is not a live product or connected to any real blockchain network yet. 
 
 Welcome to **HubChain**! This is a front-end slicing practice for a conceptual Web3 ecosystem. Currently starting with a premium, mobile-first Decentralized Profile Card, with a vision to expand into a full-fledged Web3 interface.
