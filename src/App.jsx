@@ -108,7 +108,8 @@ function App() {
 
   return (
     <>
-      <div className="overflow-x-hidden text-white bg-darkbg max-w-md mx-auto relative font-jakarta pb-20 min-h-screen">
+    <div className="min-h-screen w-full bg-[#0a0a0a] sm:py-20 sm:my-10 flex justify-center items-center ">
+      <div className="text-white bg-darkbg w-full max-w-md relative font-jakarta pb-20 min-h-screen sm:min-h-[850px] sm:h-auto sm:rounded-[40px] sm:shadow-[0_0_50px_rgba(0,0,0,0.5)] sm:border sm:border-white/10 sm:max-w-lg sm:scale-[1.1] overflow-hidden">
         {/* AMBIENT GLOW EFFECTS */}
         <div className="absolute top-20 -left-10 w-72 h-72 bg-cyberpurple/20 rounded-full mix-blend-screen filter blur-[80px] pointer-events-none z-0"></div>
         <div className="absolute top-48 -right-10 w-72 h-72 bg-neoncyan/10 rounded-full mix-blend-screen filter blur-[90px] pointer-events-none z-0"></div>
@@ -447,7 +448,9 @@ function App() {
           <div className="font-space font-normal text-sm">Hubchain</div>
         </a>
 
-        {/* wallet connect overlay */}
+        
+      </div>
+      {/* wallet connect overlay */}
         {isWalletOpen && (
           <div
             className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4"
