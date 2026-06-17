@@ -141,7 +141,7 @@ function App() {
         <div className="relative px-6">
           <div className="absolute -top-12 left-6">
             <img
-              src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop"
+              src="/public/photoProfile.jpg"
               alt="profile"
               className="w-24 h-24 rounded-full object-cover border-4 border-[#09090B]"
             />
