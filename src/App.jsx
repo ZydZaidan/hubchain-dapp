@@ -141,7 +141,7 @@ function App() {
         <div className="relative px-6">
           <div className="absolute -top-12 left-6">
             <img
-              src="/public/photoProfile.jpg"
+              src="/photoProfile.jpg"
               alt="profile"
               className="w-24 h-24 rounded-full object-cover border-4 border-[#09090B]"
             />
